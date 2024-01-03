@@ -1,9 +1,9 @@
 ---
 galaxy_info:
-  role_name: ROLE_NAME_HERE
-  namespace: NAMESPACE_HERE
+  role_name: accessibility
+  namespace: fred_drake
   author: Fred Drake
-  description: DESCRIPTION_HERE
+  description: Runs routines allowing consistent access into the system.
   company: None
   license: MIT
 

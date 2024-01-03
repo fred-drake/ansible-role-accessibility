@@ -3,4 +3,16 @@
   hosts: all
   gather_facts: false
   vars: {}
-  tasks: []
+  tasks:
+    - name: Create user fdrake
+      ansible.builtin.user:
+        name: fdrake
+        state: present
+        shell: /bin/bash
+        password: "{{ 'testing123!' | password_hash('sha512', 'mysecretsalt') }}"
+    - name: Add fdrake to sudoers file
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        line: 'fdrake ALL=(ALL) ALL'
+        validate: 'visudo -cf %s'
+        insertafter: '^# User privilege specification$'
